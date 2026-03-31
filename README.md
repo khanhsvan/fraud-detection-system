@@ -17,11 +17,7 @@ fraud-detection/
 |   `-- shap_summary.png
 |-- logs/
 |   `-- training.log
-|-- dashboard/
-|   `-- app.py
 |-- train.py
-|-- monitor.py
-|-- app.py
 |-- requirements.txt
 `-- README.md
 ```
