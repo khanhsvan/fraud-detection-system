@@ -1,0 +1,67 @@
+Fraud Detection Training Report
+========================================
+
+Best model: random_forest
+Best hyperparameters: {'n_estimators': 350, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': None}
+Best CV score (F1): 0.99989
+
+Baseline vs Tuned Comparison
+------------------------------
+Model: logistic_regression
+  Baseline Accuracy: 0.97421
+  Baseline Precision: 0.05803
+  Baseline Recall: 0.91837
+  Baseline F1: 0.10916
+  Tuned Accuracy: 0.97421
+  Tuned Precision: 0.05803
+  Tuned Recall: 0.91837
+  Tuned F1: 0.10916
+
+Model: random_forest
+  Baseline Accuracy: 0.99789
+  Baseline Precision: 0.44330
+  Baseline Recall: 0.87755
+  Baseline F1: 0.58904
+  Tuned Accuracy: 0.99947
+  Tuned Precision: 0.85417
+  Tuned Recall: 0.83673
+  Tuned F1: 0.84536
+
+Model: gradient_boosting
+  Baseline Accuracy: 0.98992
+  Baseline Precision: 0.13609
+  Baseline Recall: 0.90816
+  Baseline F1: 0.23670
+  Tuned Accuracy: 0.99677
+  Tuned Precision: 0.33071
+  Tuned Recall: 0.85714
+  Tuned F1: 0.47727
+
+Model: xgboost
+  Baseline Accuracy: 0.99884
+  Baseline Precision: 0.61594
+  Baseline Recall: 0.86735
+  Baseline F1: 0.72034
+  Tuned Accuracy: 0.99933
+  Tuned Precision: 0.76786
+  Tuned Recall: 0.87755
+  Tuned F1: 0.81905
+
+Top Feature Importance (RandomForest)
+------------------------------
+  V14: 0.172674
+  V10: 0.110809
+  V4: 0.110466
+  V12: 0.098960
+  V17: 0.084668
+  V11: 0.074588
+  V3: 0.056026
+  V16: 0.046004
+  V7: 0.027187
+  V2: 0.026804
+
+Observations
+------------------------------
+  - SMOTE was applied only to the training split to avoid data leakage.
+  - Hyperparameter tuning optimized for fraud-class F1, prioritizing rare-event detection quality.
+  - The dashboard and monitor scripts can read the generated JSON metrics and training log in real time.
