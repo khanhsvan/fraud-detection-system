@@ -1,0 +1,42 @@
+2026-03-31 16:18:20,998 | INFO | Starting fraud detection training pipeline
+2026-03-31 16:18:20,999 | INFO | Limiting CPU-parallel workloads to 4 worker(s)
+2026-03-31 16:18:21,086 | INFO | GPU available: True
+2026-03-31 16:18:21,087 | INFO | Detected GPU(s): NVIDIA GeForce GTX 1650
+2026-03-31 16:18:21,087 | INFO | Loading dataset from D:\NetBeansProjects\webtruyen\AI\data\creditcard.csv
+2026-03-31 16:18:23,117 | INFO | Dataset loaded with shape (284807, 31)
+2026-03-31 16:18:23,183 | INFO | Creating stratified train/test split
+2026-03-31 16:18:23,369 | INFO | Scaling Time and Amount columns
+2026-03-31 16:18:23,422 | INFO | Applying SMOTE to the training split
+2026-03-31 16:18:26,695 | INFO | Resampled training shape: (454902, 30)
+2026-03-31 16:18:26,698 | INFO | Training baseline model: logistic_regression
+2026-03-31 16:18:29,608 | INFO | logistic_regression | baseline | accuracy=0.97421 precision=0.05803 recall=0.91837 f1=0.10916
+2026-03-31 16:18:29,609 | INFO | logistic_regression | baseline | confusion_matrix=[[55403, 1461], [8, 90]]
+2026-03-31 16:18:29,610 | INFO | Training baseline model: random_forest
+2026-03-31 16:21:20,303 | INFO | random_forest | baseline | accuracy=0.99789 precision=0.44330 recall=0.87755 f1=0.58904
+2026-03-31 16:21:20,303 | INFO | random_forest | baseline | confusion_matrix=[[56756, 108], [12, 86]]
+2026-03-31 16:21:20,304 | INFO | Training baseline model: gradient_boosting
+2026-03-31 16:33:58,561 | INFO | gradient_boosting | baseline | accuracy=0.98992 precision=0.13609 recall=0.90816 f1=0.23670
+2026-03-31 16:33:58,562 | INFO | gradient_boosting | baseline | confusion_matrix=[[56299, 565], [9, 89]]
+2026-03-31 16:33:58,562 | INFO | Training baseline model: xgboost
+2026-03-31 16:34:02,053 | INFO | xgboost | baseline | accuracy=0.99884 precision=0.61594 recall=0.86735 f1=0.72034
+2026-03-31 16:34:02,053 | INFO | xgboost | baseline | confusion_matrix=[[56811, 53], [13, 85]]
+2026-03-31 16:34:02,059 | INFO | Added XGBoost candidate with device=cuda
+2026-03-31 16:34:02,879 | INFO | Starting hyperparameter tuning for logistic_regression with 8 candidate draws across 10 possible combinations
+2026-03-31 16:36:05,410 | INFO | logistic_regression | tuned | accuracy=0.97421 precision=0.05803 recall=0.91837 f1=0.10916
+2026-03-31 16:36:05,411 | INFO | logistic_regression | tuned | confusion_matrix=[[55403, 1461], [8, 90]]
+2026-03-31 16:36:05,895 | INFO | Starting hyperparameter tuning for random_forest with 8 candidate draws across 108 possible combinations
+2026-03-31 17:26:54,786 | INFO | random_forest | tuned | accuracy=0.99947 precision=0.85417 recall=0.83673 f1=0.84536
+2026-03-31 17:26:54,786 | INFO | random_forest | tuned | confusion_matrix=[[56850, 14], [16, 82]]
+2026-03-31 17:26:55,206 | INFO | Starting hyperparameter tuning for gradient_boosting with 8 candidate draws across 54 possible combinations
+2026-03-31 19:00:26,051 | INFO | gradient_boosting | tuned | accuracy=0.99677 precision=0.33071 recall=0.85714 f1=0.47727
+2026-03-31 19:00:26,059 | INFO | gradient_boosting | tuned | confusion_matrix=[[56694, 170], [14, 84]]
+2026-03-31 19:00:26,958 | INFO | Starting hyperparameter tuning for xgboost with 8 candidate draws across 243 possible combinations
+2026-03-31 19:01:53,129 | INFO | xgboost | tuned | accuracy=0.99933 precision=0.76786 recall=0.87755 f1=0.81905
+2026-03-31 19:01:53,129 | INFO | xgboost | tuned | confusion_matrix=[[56838, 26], [12, 86]]
+2026-03-31 19:01:53,138 | INFO | Selected best model: random_forest
+2026-03-31 19:01:54,588 | INFO | Saved best model to D:\NetBeansProjects\webtruyen\AI\model\best_model.pkl
+2026-03-31 19:01:54,588 | INFO | Saved scaler to D:\NetBeansProjects\webtruyen\AI\model\scaler.pkl
+2026-03-31 19:06:08,481 | INFO | Saved SHAP summary plot to D:\NetBeansProjects\webtruyen\AI\reports\shap_summary.png
+2026-03-31 19:06:08,501 | INFO | Saved metrics JSON to D:\NetBeansProjects\webtruyen\AI\reports\metrics.json
+2026-03-31 19:06:08,516 | INFO | Saved training report to D:\NetBeansProjects\webtruyen\AI\reports\training_report.txt
+2026-03-31 19:06:08,516 | INFO | Training pipeline completed successfully
